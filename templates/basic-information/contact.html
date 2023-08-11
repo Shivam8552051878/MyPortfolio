@@ -1,0 +1,38 @@
+{% include "base/header.html" %}
+
+<section class="p-4 p-md-5 mb-4 rounded text-dark bg-light">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-md-10 mx-auto">
+                <h1 class="display-4 fst-italic">Get in Touch</h1>
+                <p class="lead">I'd love to hear from you. Feel free to reach out with any questions, collaboration
+                    ideas, or just to say hello.</p>
+                <form>
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Name</label>
+                        <input type="text" class="form-control" id="name" name="name" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" class="form-control" id="email" name="email" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="phone" class="form-label">Phone</label>
+                        <input type="tel" class="form-control" id="phone" name="phone">
+                    </div>
+                    <div class="mb-3">
+                        <label for="message" class="form-label">Message</label>
+                        <textarea class="form-control" id="message" name="message" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-dark">Send Message</button>
+                </form>
+                <p class="mt-4">You can also reach me directly at: <a href="tel:+918552051878">+91 (855) 205-878</a></p>
+                <p class="mt-2">Or, drop me an email at: <a
+                        href="sg9967780426@gmail.com">your.email@example.com</a></p>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+{% include "base/footer.html" %}
