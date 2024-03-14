@@ -4,8 +4,8 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-md-10 mx-auto">
-                <h1 class="display-4 fst-italic">Project 1: Project Title</h1>
-                <p class="lead">Learn more about this exciting project where I applied my skills in Electronics and Python Development.</p>
+                <h1 class="display-4 fst-italic">{{project.title}}</h1>
+                <p class="lead">{{project.subtitle}}</p>
             </div>
         </div>
     </div>
@@ -15,21 +15,27 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-md-10 mx-auto">
-                <img src="path-to-project1-image.jpg" class="img-fluid mb-4" alt="Project 1">
-                <p class="lead">Project Overview:</p>
-                <p>Briefly describe the project, including its objectives, challenges, and the problem it aimed to solve.</p>
+                <img src="#" class="img-fluid mb-4" alt="project Title">
+                <p class="lead">{{project.date}}</p>
+                
+                <!-- Replace this with the full content of your blog project -->
+                <div class="blog-content">
+                    {{ project.body|safe }}
+                <hr>
+                {% if current_user.id == 1 %}
+                <div class="clearfix">
+                    <a class="btn btn-primary float-right" href="{{url_for('edit_project', project_id=project.id)}}">Edit
+                        project</a>
+                </div>
+                {% endif %}
 
-                <p class="lead">My Role:</p>
-                <p>Explain your role in the project. Describe the tasks you performed, your responsibilities, and your contributions to the project's success.</p>
 
-                <p class="lead">Technologies Used:</p>
-                <p>Highlight the key technologies, tools, and frameworks you utilized to develop this project.</p>
+                <!--           Comments Area -->
 
-                <p class="lead">Results and Impact:</p>
-                <p>Discuss the outcomes of the project. What were the results achieved? How did the project make a positive impact?</p>
-
-                <p class="lead">Lessons Learned:</p>
-                <p>Share any insights or lessons you gained from working on this project. Discuss challenges you overcame and what you would do differently in hindsight.</p>
+                {{ ckeditor.load() }}
+                {{ ckeditor.config(name='comment_text') }}
+                {{ wtf.quick_form(form, novalidate=True, button_map={"submit": "primary"}) }}
+                </div>
             </div>
         </div>
     </div>

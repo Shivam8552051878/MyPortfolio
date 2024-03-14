@@ -41,7 +41,16 @@
             </div>
         </div>
     </div>
+     <div class="text-center mt-4">
+        <a href="url_for('blog')" class="btn btn-outline-dark d-block mx-auto">View All Blogs</a>
+    </div>
+    {% if current_user.id == 1: %}
+    <div class="text-center mt-4">
+        <a href="{{url_for('create_post')}}" class="btn btn-outline-dark d-block mx-auto">Create Blogs</a>
+    </div>
+    {% endif %}
 </section>
+
 
 <section class="p-4 px-md-5 py-md-3 mb-4 bg-light">
     <h1 class="rounded text-dark display-4 fst-italic text-center">Projects</h1>
@@ -58,33 +67,14 @@
 
     </div>
     <hr class="featurette-divider">
-
-    <div class="row featurette justify-content-center align-items-center">
-        <div class="col-md-7 col-sm-12 order-md-2">
-            <h2 class="featurette-heading fw-normal lh-1 text-center">Project 2</h2>
-            <p class="lead text-center">Description of project 2.</p>
-            <p class="lead text-center"><a href="#"  class="btn btn-outline-dark text-center">Learn More</a></p>
-        </div>
-        <div class="col-md-5 col-sm-12">
-            <img src="static/assets/img/post-bg.jpg" class="img-fluid d-block mx-auto" alt="Image">
-        </div>
-    </div>
-    <hr class="featurette-divider">
-    <div class="row featurette justify-content-center align-items-center">
-        <div class="col-md-7 col-sm-12">
-            <h2 class="featurette-heading fw-normal lh-1 text-center">Project 3</h2>
-            <p class="lead text-center">Description of project 3.</p>
-            <p class="lead text-center"><a href="#"  class="btn btn-outline-dark text-center">Learn More</a></p>
-
-        </div>
-        <div class="col-md-5 col-sm-12">
-            <img src="static/assets/img/post-bg.jpg" class="img-fluid d-block mx-auto" alt="Image">
-        </div>
-    </div>
-        <hr class="featurette-divider">
-
     <div class="text-center mt-4">
-        <a href="projects.html" class="btn btn-outline-dark d-block mx-auto">View All Projects</a>
+        <a href="url_for('project')" class="btn btn-outline-dark d-block mx-auto">View All Projects</a>
     </div>
+    {% if current_user.id == 1: %}
+    <div class="text-center mt-4">
+        <a href="{{ url_for('create_project')}}" class="btn btn-outline-dark d-block mx-auto">Create Project</a>
+    </div>
+    {% endif %}
 </section>
+
 {% include "base/footer.html" %}

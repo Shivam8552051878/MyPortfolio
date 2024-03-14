@@ -23,8 +23,25 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{{ url_for('about') }}">ABOUT ME</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ url_for('blog') }}">BLOGS</a>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="postDropdown" role="button"
+                       data-bs-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false">
+                        BLOGS
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="projectsDropdown">
+                        <a class="dropdown-item" href="{{ url_for('blog', category='all') }}">ALL</a>
+                        <a class="dropdown-item" href="{{ url_for('blog', category='personal_story') }}">Personal Story/Reflection</a>
+                        <a class="dropdown-item" href="{{ url_for('blog', category='social_impact') }}">Social Impact</a>
+                        <a class="dropdown-item" href="{{ url_for('blog', category='project_showcase') }}">Project Showcase</a>
+                        <a class="dropdown-item" href="{{ url_for('blog', category='Security & Ethical
+                            Hacking') }}">Security & Ethical Hacking</a>
+                        <a class="dropdown-item" href="{{ url_for('blog', category='tutorial_guide') }}">Tutorial/Guide</a>
+                        <a class="dropdown-item" href="{{ url_for('blog', category='other') }}">Other</a>
+
+                    </div>
+                </li>
+                <!--                    ('personal_story', 'Personal Story/Reflection'), ('social_impact', 'Social Impact'),('project_showcase', 'Project Showcase'), ('tutorial_guide', 'Tutorial/Guide'), ('code_snipet', 'Code Snippets')-->
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="projectsDropdown" role="button"
@@ -33,14 +50,32 @@
                         PROJECTS
                     </a>
                     <div class="dropdown-menu" aria-labelledby="projectsDropdown">
-                        <a class="dropdown-item" href="{{ url_for('project', category='automation') }}">Automation</a>
-                        <a class="dropdown-item" href="{{ url_for('project', category='iot') }}">IOT Project</a>
-                        <a class="dropdown-item" href="{{ url_for('project', category='python') }}">Python Project</a>
+                        <a class="dropdown-item" href="{{ url_for('project', category='all') }}">ALL</a>
+                        <a class="dropdown-item" href="{{ url_for('project', category='Automation') }}">Automation</a>
+                        <a class="dropdown-item" href="{{ url_for('project', category='Machine Learning & AI') }}">Machine Learning & AI</a>
+                        <a class="dropdown-item" href="{{ url_for('project', category='IoT & Embedded Projects') }}">IoT & Embedded Projects</a>
+                        <a class="dropdown-item" href="{{ url_for('project', category='Security & Ethical Hacking') }}">Security & Ethical Hacking</a>
+                        <a class="dropdown-item" href="{{ url_for('project', category='Software Development') }}">Software Development</a>
+                        <a class="dropdown-item" href="{{ url_for('project', category='Other') }}">Other</a>
+
                     </div>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ url_for('contact') }}">CONTACT ME</a>
                 </li>
+                {% if not current_user.is_authenticated: %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('login') }}">LOG IN</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('register') }}">SIGN UP</a>
+                </li>
+                {% else %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('logout') }}">LOG OUT</a>
+                </li>
+                {% endif %}
+
             </ul>
         </div>
     </div>
